@@ -1,0 +1,25 @@
+clear;
+close;
+clc;
+%*Number of statistical characters
+fid1=fopen('file.txt');
+c=fscanf(fid1,'%s');%*Space stripper
+fclose(fid1);
+n=length(c);
+%*Count the number of words
+fid2=fopen('file.txt');
+A=textscan(fid2,'%s','delimiter',' ');%*Spaces are used as delimiters by default
+A{1}
+wordnum=length(A{1}); %*Take the number of rows, where the number of rows is the number of words
+fclose(fid2);
+%*Count the number of sentences
+fid3=fopen('file.txt');
+B=textscan(fid3,'%s','delimiter','.');%*Use period as a delimiter
+B{1}
+sennum=length(B{1});  %*Count the number of sentences
+fclose(fid3);
+disp('字符数')   
+disp(n)
+disp('单词数')   
+disp(wordnum)
+disp('句子数')  
